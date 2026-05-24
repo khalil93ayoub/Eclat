@@ -1,16 +1,16 @@
 # ECLAT Content Guide
 
-This version follows the supplied desktop and phone mockups, with a live hero banner, generated product photos, color selection, gallery/reel modal, and editable cart dropdown.
+This version follows the supplied desktop and phone mockups, with French and Arabic language switching, a live hero banner, generated product photos, color selection, gallery/reel modal, and editable cart dropdown.
 
 ## Main Files
 
 - `index.html`: landing page.
 - `checkout.html`: single product/order page with black and white color options.
 - `css/styles.css`: all layout, spacing, desktop/mobile rules, cart dropdown, and modal styling.
-- `js/app.js`: product data, gallery data, cart logic, thumbnail switching, quantity buttons, accordions, and order links.
-- `assets/generated/`: new generated hero and product photos.
+- `js/app.js`: product data, translations, gallery data, cart logic, thumbnail switching, quantity buttons, accordions, and order links.
+- `assets/generated/`: active hero and product photos.
 - `assets/eclat-logo-real.png`: gold ECLAT logo used in the site header.
-- `assets/mockup/`: supporting gallery and thumbnail images cropped from your mockups.
+- `assets/mockup/`: active gallery and thumbnail images cropped from your mockups.
 
 ## Change Product Information
 
@@ -19,11 +19,8 @@ Open `js/app.js` and edit the `products` object:
 ```js
 black: {
     id: "black",
-    color: "Black",
-    title: "ECLAT T-Shirt Black",
     price: 35,
     main: "assets/generated/eclat-shirt-black.png",
-    card: "assets/generated/eclat-shirt-black.png",
     thumbs: [...]
 }
 ```
@@ -50,14 +47,31 @@ links: {
 
 The header contact dropdown, product buttons, and cart dropdown use those links. WhatsApp also receives an order message with color, size, and quantity.
 
+## Change Languages
+
+French is the main language. Arabic is handled inside the `I18N` object in `js/app.js`.
+
+To change visible wording, edit the matching key in both language blocks:
+
+```js
+fr: {
+    heroEyebrow: "Nouvelle sortie"
+},
+ar: {
+    heroEyebrow: "إصدار جديد"
+}
+```
+
+The language toggle appears in the desktop and mobile headers.
+
 ## Change Landing Hero
 
 The hero text is live HTML in `index.html`:
 
 ```html
-<p>New drop</p>
+<p>Nouvelle sortie</p>
 <h1>ECLAT</h1>
-<h2>Timeless simplicity.<br>Made to stand out.</h2>
+<h2>Simplicite intemporelle.<br>Faite pour se distinguer.</h2>
 ```
 
 The hero banner image is set in `index.html`:

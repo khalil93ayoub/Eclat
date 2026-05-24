@@ -1562,6 +1562,10 @@ select {
         background: #eeeeee;
     }
 
+    .sticky-order-bar > div {
+        min-width: 0;
+    }
+
     .sticky-order-bar strong,
     .sticky-order-bar span {
         display: block;

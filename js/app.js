@@ -3,16 +3,11 @@ const ECLAT = {
         instagram: "https://www.instagram.com/",
         whatsapp: "https://wa.me/15551234567"
     },
-    productName: "ECLAT T-Shirt",
     products: {
         black: {
             id: "black",
-            color: "Black",
-            title: "ECLAT T-Shirt Black",
-            displayTitle: "ECLAT T-Shirt<br>Black",
             price: 35,
             main: "assets/generated/eclat-shirt-black.png",
-            card: "assets/generated/eclat-shirt-black.png",
             thumbs: [
                 "assets/generated/eclat-shirt-black.png",
                 "assets/mockup/black-thumb-2.jpg",
@@ -23,12 +18,8 @@ const ECLAT = {
         },
         white: {
             id: "white",
-            color: "White",
-            title: "ECLAT T-Shirt White",
-            displayTitle: "ECLAT T-Shirt<br>White",
             price: 35,
             main: "assets/generated/eclat-shirt-white.png",
-            card: "assets/generated/eclat-shirt-white.png",
             thumbs: [
                 "assets/generated/eclat-shirt-white.png",
                 "assets/mockup/white-thumb-2.jpg",
@@ -63,20 +54,6 @@ const ECLAT = {
             type: "video",
             reelUrl: "",
             videoSrc: ""
-        }
-    ],
-    recommended: [
-        {
-            title: "ECLAT Logo Cap Black",
-            price: "$25.00",
-            image: "assets/mockup/cap-black.jpg",
-            outOfStock: true
-        },
-        {
-            title: "ECLAT Oversized Tee White",
-            price: "$40.00",
-            image: "assets/mockup/oversized-white.jpg",
-            outOfStock: true
         }
     ]
 };
@@ -159,8 +136,6 @@ const I18N = {
         reelTitle3: "Reel ECLAT 03",
         emptyCart: "Votre panier est vide.",
         shopDrop: "Voir la collection",
-        outOfStock: "Rupture de stock",
-        inStock: "Disponible",
         remove: "Retirer",
         orderMessageEmpty: "Bonjour, je souhaite commander chez ECLAT.",
         orderMessageIntro: "Bonjour, je souhaite commander :",
@@ -239,8 +214,6 @@ const I18N = {
         reelTitle3: "ريل ECLAT 03",
         emptyCart: "سلتك فارغة.",
         shopDrop: "تصفح المجموعة",
-        outOfStock: "غير متوفر",
-        inStock: "متوفر",
         remove: "إزالة",
         orderMessageEmpty: "مرحبا، أريد الطلب من ECLAT.",
         orderMessageIntro: "مرحبا، أريد طلب:",
@@ -368,7 +341,7 @@ function renderHomeProducts() {
 
     grid.innerHTML = Object.values(ECLAT.products).map(product => `
         <a class="product-card" href="checkout.html?color=${product.id}">
-            <img src="${product.card}" alt="${localizedProductTitle(product)}">
+            <img src="${product.main}" alt="${localizedProductTitle(product)}">
             <div class="product-card-row">
                 <span>${t("productBase")}<br>${colorName(product.id)}</span>
                 <span>${money(product.price)}</span>
@@ -382,7 +355,7 @@ function renderGallery() {
     if (!track) return;
 
     track.innerHTML = ECLAT.gallery.map(item => `
-        <button class="lookbook-card reel-card" type="button" data-gallery-item="${item.id}">
+        <button class="lookbook-card" type="button" data-gallery-item="${item.id}">
             <img src="${item.image}" alt="${t(item.titleKey)}">
             <span class="play-overlay"><span>&#9655;</span><small>${t("playReel")}</small></span>
         </button>
@@ -471,7 +444,6 @@ function renderProductPage() {
     selectedColor = productByColor(selectedColor).id;
     selectedQuantity = 1;
     renderSelectedProduct();
-    renderRecommended();
     bindProductActions();
     bindAccordions();
 }
@@ -784,20 +756,6 @@ function initCart() {
     });
 
     renderCart();
-}
-
-function renderRecommended() {
-    const grid = qs("[data-recommended-grid]");
-    if (!grid) return;
-
-    grid.innerHTML = ECLAT.recommended.map(item => `
-        <a class="recommended-card ${item.outOfStock ? "is-out" : ""}" href="${item.outOfStock ? "#" : "checkout.html?color=white"}" aria-disabled="${item.outOfStock ? "true" : "false"}">
-            <span class="stock-badge">${item.outOfStock ? t("outOfStock") : t("inStock")}</span>
-            <img src="${item.image}" alt="${item.title}">
-            <h3>${item.title}</h3>
-            <p>${item.price}</p>
-        </a>
-    `).join("");
 }
 
 function bindOrderLinks(product) {
