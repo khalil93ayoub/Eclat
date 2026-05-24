@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" role="img" aria-labelledby="title desc">
+  <title id="title">Fabric and label detail</title>
+  <desc id="desc">A stylized close-up of fabric texture and an ECLAT label.</desc>
+  <rect width="900" height="1125" fill="#111111"/>
+  <g opacity="0.22" stroke="#ffffff" stroke-width="2">
+    <path d="M0 180h900M0 260h900M0 340h900M0 420h900M0 500h900M0 580h900M0 660h900M0 740h900M0 820h900M0 900h900"/>
+    <path d="M100 0v1125M180 0v1125M260 0v1125M340 0v1125M420 0v1125M500 0v1125M580 0v1125M660 0v1125M740 0v1125M820 0v1125"/>
+  </g>
+  <rect x="224" y="350" width="452" height="286" rx="12" fill="#ffffff"/>
+  <text x="450" y="500" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="78" font-weight="900" fill="#111111">ECLAT</text>
+  <rect x="324" y="540" width="252" height="7" rx="3.5" fill="#ff6645"/>
+  <text x="450" y="596" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#646464">DROP 001</text>
+</svg>

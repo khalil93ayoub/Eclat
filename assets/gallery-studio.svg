@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" role="img" aria-labelledby="title desc">
+  <title id="title">Studio product frame</title>
+  <desc id="desc">A stylized studio image with ECLAT t-shirts on a chrome rail.</desc>
+  <rect width="900" height="1125" fill="#dce8e5"/>
+  <rect x="96" y="116" width="708" height="893" rx="18" fill="#ffffff"/>
+  <path d="M184 236h532" stroke="#111111" stroke-width="14" stroke-linecap="round"/>
+  <path d="M318 235v86M582 235v86" stroke="#111111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M262 330c34 25 69 37 104 37s70-12 104-37l96 48 51 148-100 35-27-60 7 310H235l7-310-27 60-100-35 51-148 96-48Z" fill="#111111"/>
+  <path d="M526 330c34 25 69 37 104 37s70-12 104-37l96 48 51 148-100 35-27-60 7 310H499l7-310-27 60-100-35 51-148 96-48Z" fill="#f3f4f4" stroke="#d4d4d4"/>
+  <text x="450" y="924" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="44" font-weight="900" fill="#111111">ECLAT</text>
+</svg>

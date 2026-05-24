@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECLAT | Produit</title>
+    <meta name="description" content="Commandez le t-shirt ECLAT via Instagram ou WhatsApp.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="product">
+    <header class="site-header product-header">
+        <a class="back-icon" href="index.html" data-i18n-aria="ariaBackHome" aria-label="Retour a l'accueil">&lsaquo;</a>
+        <a class="logo" href="index.html" data-i18n-aria="ariaHome" aria-label="Accueil ECLAT">
+            <img src="assets/eclat-logo-real.png" alt="ECLAT logo">
+        </a>
+        <div class="header-actions">
+            <button class="language-toggle" type="button" data-language-toggle aria-label="Passer en arabe" aria-pressed="false">
+                <span data-lang-fr>FR</span>
+                <span data-lang-ar>AR</span>
+            </button>
+            <button class="bag-button" type="button" data-cart-toggle data-i18n-aria="ariaOpenBag" aria-label="Ouvrir le panier" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 9h10l-1 11H8L7 9Z"></path>
+                    <path d="M9 9V7a3 3 0 0 1 6 0v2"></path>
+                </svg>
+                <span class="bag-count" data-cart-count>0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="product-page" data-product-page>
+        <a class="back-link" href="index.html" data-i18n="backHome">&lsaquo; Retour a l'accueil</a>
+        <button class="language-toggle product-language-toggle" type="button" data-language-toggle aria-label="Passer en arabe" aria-pressed="false">
+            <span data-lang-fr>FR</span>
+            <span data-lang-ar>AR</span>
+        </button>
+
+        <section class="product-layout">
+            <div class="product-gallery">
+                <div class="main-product-frame">
+                    <img data-main-product-image src="" alt="">
+                </div>
+                <div class="thumbnail-row" data-thumbnail-row></div>
+            </div>
+
+            <form class="product-info" data-product-form>
+                <h1 data-product-title></h1>
+                <p class="product-price" data-product-price></p>
+                <p class="product-description" data-i18n="productDescription">Design minimal. Impact maximal. Concu en coton premium pour un confort et un style au quotidien.</p>
+
+                <div class="field-label">
+                    <span data-i18n="colorLabel">Couleur</span>
+                    <div class="color-options" data-color-options></div>
+                </div>
+
+                <label class="field-label">
+                    <span data-i18n="sizeLabel">Taille</span>
+                    <select data-size-select required>
+                        <option value="" data-i18n="selectSize">Choisir la taille</option>
+                        <option>XS</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+                </label>
+
+                <div class="field-label">
+                    <span data-i18n="quantityLabel">Quantite</span>
+                    <div class="quantity-control">
+                        <button type="button" data-qty-dec data-i18n-aria="ariaDecreaseQty" aria-label="Diminuer la quantite">&minus;</button>
+                        <span data-quantity>1</span>
+                        <button type="button" data-qty-inc data-i18n-aria="ariaIncreaseQty" aria-label="Augmenter la quantite">+</button>
+                    </div>
+                </div>
+
+                <button class="add-to-bag" type="button" data-add-to-cart data-i18n="addToBag">Ajouter au panier</button>
+
+                <div class="checkout-actions">
+                    <p data-i18n="checkoutVia">Commander via</p>
+                    <a class="social-order instagram" data-instagram-link href="#" target="_blank" rel="noreferrer">
+                        <span class="social-icon instagram-icon" aria-hidden="true"></span>
+                        <span data-i18n="orderOnInstagram">Commander sur Instagram</span>
+                    </a>
+                    <a class="social-order whatsapp" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
+                        <span class="social-icon whatsapp-icon" aria-hidden="true"></span>
+                        <span data-i18n="orderOnWhatsapp">Commander sur WhatsApp</span>
+                    </a>
+                </div>
+            </form>
+        </section>
+
+        <section class="mobile-extra">
+            <div class="accordion" data-accordion>
+                <button type="button" aria-expanded="false"><span data-i18n="detailsTitle">Details du produit</span> <span>v</span></button>
+                <p data-i18n="detailsText">T-shirt en coton premium avec impression ECLAT epuree, coupe reguliere et toucher doux au quotidien.</p>
+            </div>
+            <div class="accordion" data-accordion>
+                <button type="button" aria-expanded="false"><span data-i18n="sizeGuideTitle">Guide des tailles</span> <span>v</span></button>
+                <p data-i18n="sizeGuideText">Choisissez votre taille habituelle pour une coupe classique. Prenez une taille au-dessus pour un style plus ample.</p>
+            </div>
+            <div class="accordion" data-accordion>
+                <button type="button" aria-expanded="false"><span data-i18n="shippingTitle">Livraison et retours</span> <span>v</span></button>
+                <p data-i18n="shippingText">Les commandes se finalisent via Instagram ou WhatsApp jusqu'a la connexion du paiement en ligne.</p>
+            </div>
+        </section>
+    </main>
+
+    <aside class="sticky-order-bar">
+        <img data-sticky-image src="" alt="">
+        <div>
+            <strong data-sticky-title></strong>
+            <span data-sticky-price></span>
+        </div>
+        <button type="button" data-sticky-order data-i18n="orderNow">Commander</button>
+    </aside>
+
+    <aside class="cart-popover" data-cart-popover hidden>
+        <div class="cart-panel">
+            <div class="cart-heading">
+                <p data-i18n="cartTitle">Votre panier</p>
+                <button type="button" data-cart-close data-i18n-aria="ariaCloseBag" aria-label="Fermer le panier">&times;</button>
+            </div>
+            <div class="cart-items" data-cart-items></div>
+            <div class="cart-footer">
+                <div>
+                    <span data-i18n="subtotal">Sous-total</span>
+                    <strong data-cart-subtotal>$0.00</strong>
+                </div>
+                <a class="cart-checkout" data-cart-instagram href="#" target="_blank" rel="noreferrer" data-i18n="orderViaInstagram">Commander via Instagram</a>
+                <a class="cart-checkout cart-whatsapp" data-cart-whatsapp href="#" target="_blank" rel="noreferrer" data-i18n="orderViaWhatsapp">Commander via WhatsApp</a>
+            </div>
+        </div>
+    </aside>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
