@@ -97,11 +97,14 @@ Open `js/app.js` and edit the three items in the `gallery` array. For a reel, us
 }
 ```
 
-If you use your own MP4 instead of an Instagram embed:
+If you use your own MP4 instead of an Instagram embed, upload the file to `assets/videos/` and keep the path relative to the HTML files:
 
 ```js
-videoSrc: "assets/your-video.mp4"
+reelUrl: "",
+videoSrc: "assets/videos/reel-01.mp4"
 ```
+
+Use browser-friendly MP4 exports: H.264 video with AAC audio. Test through a local server or your live domain, not by dragging the HTML file into the browser.
 
 When visitors click a gallery video thumbnail, it opens in a large modal with a close button in the top-right corner.
 

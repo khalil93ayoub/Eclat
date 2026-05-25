@@ -37,7 +37,7 @@ const ECLAT = {
             image: "assets/mockup/look-black-detail.jpg",
             type: "video",
             reelUrl: "",
-            videoSrc: ""
+            videoSrc: "assets/videos/reel-01.mp4"
         },
         {
             id: "reel-02",
@@ -45,7 +45,7 @@ const ECLAT = {
             image: "assets/mockup/look-video.jpg",
             type: "video",
             reelUrl: "",
-            videoSrc: ""
+            videoSrc: "assets/videos/reel-02.mp4"
         },
         {
             id: "reel-03",
@@ -53,7 +53,7 @@ const ECLAT = {
             image: "assets/mockup/look-white-detail.jpg",
             type: "video",
             reelUrl: "",
-            videoSrc: ""
+            videoSrc: "assets/videos/reel-03.mp4"
         }
     ]
 };
@@ -375,7 +375,9 @@ function openGallery(id) {
     if (item.type === "video" && item.reelUrl) {
         media.innerHTML = `<iframe src="${item.reelUrl}" title="${t(item.titleKey)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
     } else if (item.type === "video" && item.videoSrc) {
-        media.innerHTML = `<video controls playsinline poster="${item.image}"><source src="${item.videoSrc}"></video>`;
+        media.innerHTML = `<video controls playsinline preload="metadata" poster="${item.image}"><source src="${item.videoSrc}" type="video/mp4"></video>`;
+        const video = qs("video", media);
+        video.load();
     } else {
         media.innerHTML = `<img src="${item.image}" alt="${t(item.titleKey)}">`;
     }
