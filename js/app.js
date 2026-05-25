@@ -66,6 +66,7 @@ const qsa = (selector, scope = document) => Array.from(scope.querySelectorAll(se
 let selectedColor = getInitialColor();
 let selectedQuantity = 1;
 let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || "fr";
+let galleryVideosPreloaded = false;
 
 const I18N = {
     fr: {
@@ -364,6 +365,28 @@ function renderGallery() {
     qsa("[data-gallery-item]").forEach(button => {
         button.addEventListener("click", () => openGallery(button.dataset.galleryItem));
     });
+
+    preloadGalleryVideos();
+}
+
+function preloadGalleryVideos() {
+    if (galleryVideosPreloaded) return;
+    galleryVideosPreloaded = true;
+
+    ECLAT.gallery.filter(item => item.videoSrc).forEach(item => {
+        const video = document.createElement("video");
+        video.src = item.videoSrc;
+        video.poster = item.image;
+        video.preload = "auto";
+        video.muted = true;
+        video.playsInline = true;
+        video.loop = true;
+        video.dataset.preloadVideo = item.id;
+        video.setAttribute("aria-hidden", "true");
+        video.style.display = "none";
+        document.body.appendChild(video);
+        video.load();
+    });
 }
 
 function openGallery(id) {
@@ -375,9 +398,19 @@ function openGallery(id) {
     if (item.type === "video" && item.reelUrl) {
         media.innerHTML = `<iframe src="${item.reelUrl}" title="${t(item.titleKey)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
     } else if (item.type === "video" && item.videoSrc) {
-        media.innerHTML = `<video controls playsinline preload="metadata" poster="${item.image}"><source src="${item.videoSrc}" type="video/mp4"></video>`;
-        const video = qs("video", media);
-        video.load();
+        const video = qs(`[data-preload-video="${item.id}"]`);
+        media.innerHTML = "";
+        if (video) {
+            video.style.display = "block";
+            video.removeAttribute("aria-hidden");
+            video.controls = true;
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            media.appendChild(video);
+        } else {
+            media.innerHTML = `<video controls playsinline muted autoplay loop preload="auto" poster="${item.image}"><source src="${item.videoSrc}" type="video/mp4"></video>`;
+        }
     } else {
         media.innerHTML = `<img src="${item.image}" alt="${t(item.titleKey)}">`;
     }
@@ -385,12 +418,32 @@ function openGallery(id) {
     qs("[data-modal-title]").textContent = t(item.titleKey);
     modal.hidden = false;
     document.body.style.overflow = "hidden";
+
+    const video = qs("video", media);
+    if (video) {
+        try {
+            video.currentTime = 0.01;
+        } catch (error) {}
+        if (!video.dataset.preloadVideo) video.load();
+        video.play().catch(() => {});
+    }
 }
 
 function closeGallery() {
     const modal = qs("[data-gallery-modal]");
     if (!modal) return;
 
+    const video = qs("[data-modal-media] video");
+    if (video) {
+        video.pause();
+        if (video.dataset.preloadVideo) {
+            video.controls = false;
+            video.autoplay = false;
+            video.setAttribute("aria-hidden", "true");
+            video.style.display = "none";
+            document.body.appendChild(video);
+        }
+    }
     modal.hidden = true;
     qs("[data-modal-media]").innerHTML = "";
     document.body.style.overflow = "";

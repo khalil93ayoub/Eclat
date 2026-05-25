@@ -104,7 +104,7 @@ reelUrl: "",
 videoSrc: "assets/videos/reel-01.mp4"
 ```
 
-Use browser-friendly MP4 exports: H.264 video with AAC audio. Test through a local server or your live domain, not by dragging the HTML file into the browser.
+Use browser-friendly MP4 exports: H.264 video with AAC audio. The site preloads the three reels and opens them muted/autoplaying so they appear quickly. Test through a local server or your live domain, not by dragging the HTML file into the browser.
 
 When visitors click a gallery video thumbnail, it opens in a large modal with a close button in the top-right corner.
 
